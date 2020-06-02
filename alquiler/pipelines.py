@@ -16,6 +16,7 @@ class AlquilerPipeline:
     def open_spider(self, spider):
         self.conn = sqlite3.connect('../../alquiler.db')
         self.cur = self.conn.cursor()
+        self.cur.execute('create table if not exists urls (url varchar)')
         self.count = 0
 
     # noinspection PyUnusedLocal
@@ -25,13 +26,13 @@ class AlquilerPipeline:
             return
         url = item['url']
         self.cur.execute(
-            'select url from alquiler where url = ?',
+            'select url from urls where url = ?',
             [url]
         )
         exist = self.cur.fetchone()
         if not exist:
             self.cur.execute(
-                'insert into alquiler (url) values (?)',
+                'insert into urls (url) values (?)',
                 [url]
             )
             self.conn.commit()
