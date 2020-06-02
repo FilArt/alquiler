@@ -1,0 +1,4 @@
+ujson
+scrapy
+python-telegram-bot
+fake_useragent
