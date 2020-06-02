@@ -14,7 +14,7 @@ def filtr(item):
 class AlquilerPipeline:
     # noinspection PyMethodMayBeStatic, PyAttributeOutsideInit,PyUnusedLocal
     def open_spider(self, spider):
-        self.conn = sqlite3.connect('../../alquiler.db')
+        self.conn = sqlite3.connect('alquiler.db')
         self.cur = self.conn.cursor()
         self.cur.execute('create table if not exists urls (url varchar)')
         self.count = 0
