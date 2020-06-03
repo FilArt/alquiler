@@ -5,6 +5,8 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils import project
 from scrapy.utils.log import logger
 
+from alquiler.local_settings import TIMEOUT_SECONDS
+
 
 def run_spiders(spiders: list, settings):
     process = CrawlerProcess(settings=settings)
@@ -22,7 +24,7 @@ def main():
     while True:
         run_spiders(spiders, settings)
         logger.warning('sleep for 600 seconds...')
-        sleep(600)
+        sleep(TIMEOUT_SECONDS)
 
 
 if __name__ == '__main__':
