@@ -5,7 +5,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.utils import project
 from scrapy.utils.log import logger
 
-from alquiler.local_settings import TIMEOUT_SECONDS
+from local_settings import TIMEOUT_SECONDS
 
 
 def run_spiders(spiders: list, settings):
